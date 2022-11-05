@@ -17,6 +17,8 @@ class GamesController < ApplicationController
 
     letters_contain_word = letters_in_grid?(letters, word)
 
+    @score = word.length**2
+
     @message = "Congratulations! #{word} is a valid English word!" if is_word && letters_contain_word
     @message = "Sorry but #{word} can't be built out of #{letters.join(", ")}" if !letters_contain_word
     @message = "Sorry but #{word} does not appear to be an english word" if !is_word
